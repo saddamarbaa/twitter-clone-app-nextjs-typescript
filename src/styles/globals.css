@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	body {
+		@apply min-h-screen;
+	}
+}
+
+@layer components {
+	.test {
+		@apply mb-5 w-full max-w-[305px] cursor-pointer rounded-lg bg-cool-gray-200  p-4  transition duration-300 ease-in-out hover:bg-cool-gray-300  dark:bg-cool-gray-A800 dark:hover:bg-dark-grey-700;
+	}
+}
+
+html::-webkit-scrollbar {
+	display: none;
+}
+
+html {
+	scrollbar-width: none;
+}
