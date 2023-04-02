@@ -1,15 +1,81 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+	content: [
+		'./app/**/*.{js,ts,jsx,tsx}',
+		'./pages/**/*.{js,ts,jsx,tsx}',
+		'./components/**/*.{js,ts,jsx,tsx}',
 
-    // Or if using `src` directory:
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-};
+		// Or if using `src` directory:
+		'./src/**/*.{js,ts,jsx,tsx}',
+	],
+	theme: {
+		extend: {
+			colors: {
+				twitterBlue: {
+					50: '#F2F9FE',
+					100: '#D7EEFB',
+					200: '#AED2F6',
+					300: '#85B5F1',
+					400: '#5897EC',
+					500: '#1DA1F2',
+					600: '#1678BD',
+					700: '#10508A',
+					800: '#0A294F',
+					900: '#010101',
+				},
+
+				twitterGray: {
+					50: '#F7FAFC',
+					100: '#EDF2F7',
+					200: '#E2E8F0',
+					300: '#CBD5E0',
+					400: '#A0AEC0',
+					500: '#718096',
+					600: '#4A5568',
+					700: '#2D3748',
+					800: '#1A202C',
+					900: '#14171A',
+					999: '#34373B',
+				},
+				twitterBlack: '#14171A',
+				twitterWhite: '#F5F8FA',
+			},
+			screens: {
+				ss: '300px',
+				xs: '320px',
+				sm: '640px',
+				md: '768px',
+				lg: '1024px',
+				xl: '1280px',
+			},
+		},
+		maxWidth: ({ theme, breakpoints }) => ({
+			none: 'none',
+			0: '0rem',
+			ss: '19rem',
+			xs: '20rem',
+			sm: '24rem',
+			md: '28rem',
+			lg: '32rem',
+			xl: '36rem',
+			'2xl': '42rem',
+			'3xl': '48rem',
+			'4xl': '56rem',
+			'5xl': '64rem',
+			'6xl': '72rem',
+			'7xl': '80rem',
+			full: '100%',
+			min: 'min-content',
+			max: 'max-content',
+			fit: 'fit-content',
+			prose: '65ch',
+			...breakpoints(theme('screens')),
+		}),
+	},
+	variants: {
+		lineClamp: ['responsive'],
+	},
+	plugins: [],
+	mode: 'jit',
+	darkMode: 'class',
+}
