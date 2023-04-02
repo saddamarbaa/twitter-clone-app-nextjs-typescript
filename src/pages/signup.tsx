@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import Image from "next/image";
+import Link from "next/link";
 function signup() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const customStyles = {
     overlay: { backgroundColor: "rgba(0, 0, 0, 0.6)" },
     content: {
@@ -14,6 +15,10 @@ function signup() {
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
     },
+  };
+  const switchToLogin = () => {
+    console.log("hello");
+    setIsOpen(false);
   };
   return (
     <>
@@ -86,7 +91,7 @@ function signup() {
           </div>
           <div className="login-wrapper">
             <div className="login-text">
-              Have an account already? <a href="#">Login</a>
+              Have an account already? <Link href="/login">Login</Link>
             </div>
           </div>
         </div>
