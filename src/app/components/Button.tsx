@@ -31,7 +31,7 @@ export default function Button({
 }: Props) {
   const sizes = {
     small: 'py-1 px-2 text-sm',
-    medium: 'py-2 px-4 text-md',
+    medium: 'py-2 px-5 text-md',
     large: 'py-3 px-6 text-lg',
   };
 

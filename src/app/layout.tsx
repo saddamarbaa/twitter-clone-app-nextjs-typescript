@@ -3,6 +3,7 @@ import Auth from './components/Auth';
 import Sidebar from './components/Sidebar';
 import Widget from './components/Widget';
 import Providers from './Providers';
+import Messages from './components/Messages';
 
 export const metadata = {
   title: 'Twitter Clone app',
@@ -12,19 +13,22 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <body>
+      <body className='relative flex min-h-screen flex-col'>
         <Providers>
-          <div className='mx-auto flex h-screen w-full max-w-7xl flex-1  flex-col md:flex-row  md:flex-nowrap'>
+          <div className='mx-auto flex min-h-full w-full max-w-7xl flex-row pr-4 md:px-0 md:pr-0'>
             {/*  Sidebar */}
             <Sidebar />
-            <div className='min-w-md min-w-ss h-screen w-full overflow-y-auto border border-b-0  dark:border-twitterGray-999 md:w-1/2'>
-              {/*  Feed */}
+
+            <div className='relative flex h-full min-h-screen w-full flex-1 flex-col border border-b-0 dark:border-twitterGray-999 md:w-1/2'>
+              {/* <Feeds /> */}
               {children}
             </div>
-            {/*  Widget */}
+
+            {/* <Widget /> */}
             <Widget />
           </div>
-          <Auth />
+          {/* <Auth /> */}
+          <Messages />
         </Providers>
       </body>
     </html>
