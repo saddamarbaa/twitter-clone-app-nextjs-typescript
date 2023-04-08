@@ -4,13 +4,29 @@ import Sidebar from './components/Sidebar';
 import Widget from './components/Widget';
 import Providers from './Providers';
 import Messages from './components/Messages';
+import { ArticleT, NewsApiResponse } from './types/news';
+import { RandomUser, RandomUserApiResponse } from './types/randomUser';
 
 export const metadata = {
   title: 'Twitter Clone app',
   description: 'Twitter Clone build with + Typescript .',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  //  https:saurav.tech/NewsAPI/top-headlines/category/health/in.json
+  const newsUrl = 'https://saurav.tech/NewsAPI/top-headlines/category/business/us.json';
+  const randomUserUrl = 'https://randomuser.me/api/?results=30&inc=name,login,picture';
+  const res = await fetch(newsUrl, { next: { revalidate: 10000 } });
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
+  }
+  const data: NewsApiResponse = await res.json();
+  const articles = data.articles || ([] as ArticleT[]);
+
+  const randomUserResponse = await fetch(randomUserUrl, { next: { revalidate: 10000 } });
+  const randomUserResult: RandomUserApiResponse = await randomUserResponse.json();
+  const randomUsers = randomUserResult.results || ([] as RandomUser[]);
+
   return (
     <html lang='en'>
       <body className='relative flex min-h-screen flex-col'>
@@ -25,7 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
 
             {/* <Widget /> */}
-            <Widget />
+            <Widget initialNewsResult={articles} randomUsers={randomUsers} />
           </div>
           {/* <Auth /> */}
           <Messages />

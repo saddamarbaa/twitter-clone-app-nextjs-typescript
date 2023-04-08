@@ -1,4 +1,4 @@
-import { TweetT } from '../types';
+import { TweetT } from '../types/tweets';
 
 export const mockedTweets: TweetT[] = [
   {
@@ -536,8 +536,523 @@ export const mockedTweets: TweetT[] = [
         url: 'https://tse3.mm.bing.net/th?id=OIP.KJSD0dmEYMVYXqlRISNJUAHaD_&pid=Api&P=0',
       },
       {
+        type: 'video',
+        url: 'https://www.youtube.com/embed/4UZrsTqkcW4?autoplay=1&mute=1',
+      },
+    ],
+    timestamp: '2023-04-01T09:30:00Z',
+    likes: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T10:00:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        timestamp: '2023-04-01T11:00:00Z',
+      },
+    ],
+    comments: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        content: "I know right? I started using it recently too and it's a game changer!",
+        timestamp: '2023-04-01T10:30:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        content: "Yes, I couldn't agree more. It has saved me so much time on styling.",
+        timestamp: '2023-04-01T11:30:00Z',
+      },
+    ],
+    retweets: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T12:00:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        timestamp: '2023-04-01T13:00:00Z',
+      },
+    ],
+    views: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T10:00:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        timestamp: '2023-04-01T11:00:00Z',
+      },
+    ],
+    shares: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T12:30:00Z',
+      },
+    ],
+  },
+  {
+    id: 1,
+    title: 'Next.js 13: The Latest Features and Improvements',
+    user: {
+      username: 'Tester now, aspiring Fullstack',
+      name: 'Naveen Kolambage',
+      avatar: 'https://pbs.twimg.com/profile_images/1560233396403507200/5hKYoyz1_400x400.jpg',
+    },
+    content: 'Just tried out Vite with React and TypeScript and it is amazing! 🚀🔥 #reactjs #typescript #vite',
+    media: [
+      {
         type: 'image',
-        url: 'https://www.freecodecamp.org/news/content/images/size/w2000/2020/02/Ekran-Resmi-2019-11-18-18.08.13.png',
+        url: 'https://i.ytimg.com/vi/XShQO3BvOyM/maxresdefault.jpg',
+      },
+    ],
+    timestamp: '2023-04-01T09:30:00Z',
+    likes: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T10:00:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        timestamp: '2023-04-01T11:00:00Z',
+      },
+    ],
+    comments: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        content: "I know right? I started using it recently too and it's a game changer!",
+        timestamp: '2023-04-01T10:30:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        content: "Yes, I couldn't agree more. It has saved me so much time on styling.",
+        timestamp: '2023-04-01T11:30:00Z',
+      },
+    ],
+    retweets: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T12:00:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        timestamp: '2023-04-01T13:00:00Z',
+      },
+    ],
+    views: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T10:00:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        timestamp: '2023-04-01T11:00:00Z',
+      },
+    ],
+    shares: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T12:30:00Z',
+      },
+    ],
+  },
+  {
+    id: 1,
+    title: 'Next.js and GraphQL',
+    user: {
+      username: 'Saddam-dev',
+      name: 'Saddam Arbaa',
+      avatar: 'https://avatars.githubusercontent.com/u/51326421?v=4',
+    },
+    content: 'Next.js and GraphQL! 🚀🔥 #reactjs #typescript #vite',
+    media: [
+      {
+        type: 'image',
+        url: 'https://davidwalsh.name/demo/graphql-intro/graphql.png',
+      },
+    ],
+    timestamp: '2023-04-01T09:30:00Z',
+    likes: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T10:00:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        timestamp: '2023-04-01T11:00:00Z',
+      },
+    ],
+    comments: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        content: "I know right? I started using it recently too and it's a game changer!",
+        timestamp: '2023-04-01T10:30:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        content: "Yes, I couldn't agree more. It has saved me so much time on styling.",
+        timestamp: '2023-04-01T11:30:00Z',
+      },
+    ],
+    retweets: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T12:00:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        timestamp: '2023-04-01T13:00:00Z',
+      },
+    ],
+    views: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T10:00:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        timestamp: '2023-04-01T11:00:00Z',
+      },
+    ],
+    shares: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T12:30:00Z',
+      },
+    ],
+  },
+  {
+    title: 'Tailwind CSS',
+    id: 1,
+    user: {
+      username: 'tailwindfan',
+      name: 'Tailwind Fan',
+      avatar:
+        'https://images.unsplash.com/profile-1623795199834-f8109281554dimage?ixlib=rb-4.0.3&crop=faces&fit=crop&w=32&h=32',
+    },
+    content: 'I just discovered Tailwind CSS and it makes styling so easy! 😍 #tailwindcss #react',
+    media: [
+      {
+        type: 'image',
+        url: 'https://i.pinimg.com/originals/9d/69/fd/9d69fd497059b8c9f3942806acda6bed.png',
+      },
+      {
+        type: 'image',
+        url: 'https://res.infoq.com/news/2020/12/tailwind-css-v2/en/headerimage/header+(1)-1608368148194.jpg',
+      },
+    ],
+    timestamp: '2023-04-01T09:30:00Z',
+    likes: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T10:00:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        timestamp: '2023-04-01T11:00:00Z',
+      },
+    ],
+    comments: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        content: "I know right? I started using it recently too and it's a game changer!",
+        timestamp: '2023-04-01T10:30:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        content: "Yes, I couldn't agree more. It has saved me so much time on styling.",
+        timestamp: '2023-04-01T11:30:00Z',
+      },
+    ],
+    retweets: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T12:00:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        timestamp: '2023-04-01T13:00:00Z',
+      },
+    ],
+    views: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T10:00:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        timestamp: '2023-04-01T11:00:00Z',
+      },
+    ],
+    shares: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T12:30:00Z',
+      },
+    ],
+  },
+  {
+    id: 8,
+    title: 'Building a Node.js API with Express, Mongoose, and TypeScript',
+    user: {
+      username: 'code-with-saddam',
+      name: 'Saddam Arbaa',
+      avatar: 'https://avatars.githubusercontent.com/u/51326421?v=4',
+    },
+    content:
+      'In this article, we will walk through the process of building a Node.js API using the popular Express framework, MongoDB with Mongoose, and TypeScript. We will cover everything from setting up the project, to defining the endpoints, to handling errors and validating data. Whether you are new to Node.js or an experienced developer, this guide will help you build a robust and scalable API with ease.',
+    media: [
+      {
+        type: 'image',
+        url: 'https://codersera.com/blog/wp-content/uploads/2019/10/nodejs-thumb.jpg',
+      },
+      {
+        type: 'video',
+        url: 'https://www.youtube.com/embed/Oe421EPjeBE?autoplay=1&mute=1',
+      },
+    ],
+    timestamp: '2023-04-01T09:30:00Z',
+    likes: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T10:00:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        timestamp: '2023-04-01T11:00:00Z',
+      },
+    ],
+    comments: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        content: "I know right? I started using it recently too and it's a game changer!",
+        timestamp: '2023-04-01T10:30:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        content: "Yes, I couldn't agree more. It has saved me so much time on styling.",
+        timestamp: '2023-04-01T11:30:00Z',
+      },
+    ],
+    retweets: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T12:00:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        timestamp: '2023-04-01T13:00:00Z',
+      },
+    ],
+    views: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T10:00:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        timestamp: '2023-04-01T11:00:00Z',
+      },
+    ],
+    shares: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T12:30:00Z',
+      },
+    ],
+  },
+  {
+    id: 1,
+    title: 'React and TypeScript',
+    user: {
+      username: 'Tester now, aspiring Fullstack',
+      name: 'Naveen Kolambage',
+      avatar: 'https://pbs.twimg.com/profile_images/1560233396403507200/5hKYoyz1_400x400.jpg',
+    },
+    content: 'Just tried out Vite with React and TypeScript and it is amazing! 🚀🔥 #reactjs #typescript #vite',
+    media: [
+      {
+        type: 'image',
+        url: 'https://tse3.mm.bing.net/th?id=OIP.KJSD0dmEYMVYXqlRISNJUAHaD_&pid=Api&P=0',
       },
       {
         type: 'video',
@@ -643,6 +1158,107 @@ export const mockedTweets: TweetT[] = [
       {
         type: 'image',
         url: 'https://i.ytimg.com/vi/XShQO3BvOyM/maxresdefault.jpg',
+      },
+    ],
+    timestamp: '2023-04-01T09:30:00Z',
+    likes: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T10:00:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        timestamp: '2023-04-01T11:00:00Z',
+      },
+    ],
+    comments: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        content: "I know right? I started using it recently too and it's a game changer!",
+        timestamp: '2023-04-01T10:30:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        content: "Yes, I couldn't agree more. It has saved me so much time on styling.",
+        timestamp: '2023-04-01T11:30:00Z',
+      },
+    ],
+    retweets: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T12:00:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        timestamp: '2023-04-01T13:00:00Z',
+      },
+    ],
+    views: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T10:00:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        timestamp: '2023-04-01T11:00:00Z',
+      },
+    ],
+    shares: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T12:30:00Z',
+      },
+    ],
+  },
+  {
+    id: 1,
+    title: 'Next.js and GraphQL',
+    user: {
+      username: 'Saddam-dev',
+      name: 'Saddam Arbaa',
+      avatar: 'https://avatars.githubusercontent.com/u/51326421?v=4',
+    },
+    content: 'Next.js and GraphQL! 🚀🔥 #reactjs #typescript #vite',
+    media: [
+      {
+        type: 'image',
+        url: 'https://davidwalsh.name/demo/graphql-intro/graphql.png',
       },
     ],
     timestamp: '2023-04-01T09:30:00Z',

@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import { FaHeart, FaComment, FaRetweet, FaEye, FaShare } from 'react-icons/fa';
-import { TweetT } from '../types';
+import { TweetT } from '../types/tweets';
 
 type Props = {
   tweet: TweetT;

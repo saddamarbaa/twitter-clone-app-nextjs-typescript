@@ -9,7 +9,7 @@ type Props = {
 
 export default function Trend({ tweets, hasTag, title }: Props) {
   return (
-    <div className='duration relative flex w-full cursor-pointer flex-col  space-y-1 rounded p-2 text-sm  transition ease-in-out hover:bg-gray-200 dark:text-gray-400 dark:hover:bg-gray-700'>
+    <div className='duration relative flex w-full cursor-pointer flex-col  space-y-1 rounded p-2 px-3  text-sm transition ease-in-out hover:bg-gray-200 dark:text-gray-400 dark:hover:bg-gray-700'>
       <div className='flex items-center justify-between'>
         <span className='text-gray-400'>{title}</span>
         <IoIosMore className='dark:text-white' />
