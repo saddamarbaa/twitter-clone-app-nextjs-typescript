@@ -3,28 +3,48 @@ import Auth from './components/Auth';
 import Sidebar from './components/Sidebar';
 import Widget from './components/Widget';
 import Providers from './Providers';
+import Messages from './components/Messages';
+import { ArticleT, NewsApiResponse } from './types/news';
+import { RandomUser, RandomUserApiResponse } from './types/randomUser';
 
 export const metadata = {
   title: 'Twitter Clone app',
   description: 'Twitter Clone build with + Typescript .',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  //  https:saurav.tech/NewsAPI/top-headlines/category/health/in.json
+  const newsUrl = 'https://saurav.tech/NewsAPI/top-headlines/category/business/us.json';
+  const randomUserUrl = 'https://randomuser.me/api/?results=30&inc=name,login,picture';
+  const res = await fetch(newsUrl, { next: { revalidate: 10000 } });
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
+  }
+  const data: NewsApiResponse = await res.json();
+  const articles = data.articles || ([] as ArticleT[]);
+
+  const randomUserResponse = await fetch(randomUserUrl, { next: { revalidate: 10000 } });
+  const randomUserResult: RandomUserApiResponse = await randomUserResponse.json();
+  const randomUsers = randomUserResult.results || ([] as RandomUser[]);
+
   return (
     <html lang='en'>
-      <body>
+      <body className='relative flex min-h-screen flex-col'>
         <Providers>
-          <div className='mx-auto flex h-screen w-full max-w-7xl flex-1  flex-col md:flex-row  md:flex-nowrap'>
+          <div className='mx-auto flex min-h-full w-full max-w-7xl flex-row pr-4 md:px-0 md:pr-0'>
             {/*  Sidebar */}
             <Sidebar />
-            <div className='min-w-md min-w-ss h-screen w-full overflow-y-auto border border-b-0  dark:border-twitterGray-999 md:w-1/2'>
-              {/*  Feed */}
+
+            <div className='relative flex h-full min-h-screen w-full flex-1 flex-col border border-b-0 dark:border-twitterGray-999 md:w-1/2'>
+              {/* <Feeds /> */}
               {children}
             </div>
-            {/*  Widget */}
-            <Widget />
+
+            {/* <Widget /> */}
+            <Widget initialNewsResult={articles} randomUsers={randomUsers} />
           </div>
-          <Auth />
+          {/* <Auth /> */}
+          <Messages />
         </Providers>
       </body>
     </html>

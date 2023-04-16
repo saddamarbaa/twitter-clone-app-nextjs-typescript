@@ -27,8 +27,20 @@ export default function SideBarOption({ notification, title, handleClick, Icon, 
       <div className='relative'>
         <Icon className='cursor-pointer text-xl md:text-2xl' role='button' />
         {notification ? (
-          <span className='absolute -top-6 left-0 flex h-5 w-5 items-center  justify-center rounded-full bg-twitterBlue-500 text-center text-sm text-white'>
-            5
+          <span
+            className={`absolute -top-5 right-0 flex h-5 w-5 items-center  justify-center rounded-full ${
+              notification && title === 'Messages' ? 'bg-red-500' : 'bg-twitterBlue-500'
+            } text-center text-sm text-white`}
+          >
+            {notification}
+          </span>
+        ) : null}
+
+        {title === 'Home' ? (
+          <span
+            className={`absolute -top-2 right-0 flex h-2 w-2 items-center  justify-center rounded-full bg-twitterBlue-500`}
+          >
+            {notification}
           </span>
         ) : null}
       </div>
