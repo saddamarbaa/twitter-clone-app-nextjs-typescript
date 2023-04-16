@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import Button from './Button';
 import RandomUser from './RandomUser';
 import { RandomUserT } from '../types/randomUser';
+import { AnimatePresence, motion } from 'framer-motion';
 
 type Props = {
   initialResult: RandomUserT[];
@@ -16,10 +17,21 @@ export default function WhoToFollow({ initialResult }: Props) {
   return initialResult?.length ? (
     <div className='flex w-full flex-col rounded bg-gray-50 py-1  text-gray-900 shadow transition duration-150 dark:bg-[#202327] dark:text-white dark:placeholder-gray-400 '>
       <div className='flex w-full flex-col space-y-2'>
-        <p className='w-full cursor-pointer px-3 pt-1 text-base font-semibold md:text-lg '>Whats happening</p>
-        {initialResult.slice(0, usersNumber).map((user) => (
-          <RandomUser user={user} key={user.phone} />
-        ))}
+        <p className='w-full cursor-pointer px-3 pt-1 text-base font-semibold md:text-lg '>Who to follow</p>
+
+        <AnimatePresence>
+          {initialResult.slice(0, usersNumber).map((user) => (
+            <motion.div
+              key={user.phone}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1 }}
+            >
+              <RandomUser user={user} key={user.phone} />
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </div>
 
       <Button

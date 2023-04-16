@@ -1,5 +1,6 @@
 'use client';
 
+import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { ArticleT } from '../types/news';
 import Article from './ Article';
@@ -17,9 +18,19 @@ export default function News({ initialResult }: Props) {
       <div className='flex w-full flex-col space-y-2'>
         <p className='w-full cursor-pointer px-3 pt-1 text-base font-semibold md:text-lg '>Whats happening</p>
 
-        {initialResult.slice(0, articlesNumber).map((article) => (
-          <Article key={article.url} article={article} />
-        ))}
+        <AnimatePresence>
+          {initialResult.slice(0, articlesNumber).map((article) => (
+            <motion.div
+              key={article.url}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1 }}
+            >
+              <Article key={article.url} article={article} />
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </div>
 
       <Button

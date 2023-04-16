@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { AiFillApple } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
-import Button from '../components/Button';
+import Button from '../../components/Button';
 
 function Signup() {
   const router = useRouter();

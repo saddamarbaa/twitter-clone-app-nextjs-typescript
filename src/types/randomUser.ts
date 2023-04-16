@@ -39,7 +39,7 @@ export interface RandomUserT {
 }
 
 export interface RandomUserApiResponse {
-  results: RandomUser[];
+  results: RandomUserT[];
   info: {
     seed: string;
     results: number;

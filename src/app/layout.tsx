@@ -1,11 +1,11 @@
 import '../styles/globals.css';
-import Auth from './components/Auth';
-import Sidebar from './components/Sidebar';
-import Widget from './components/Widget';
+import Auth from '../components/Auth';
+import Sidebar from '../components/Sidebar';
+import Widget from '../components/Widget';
 import Providers from './Providers';
-import Messages from './components/Messages';
-import { ArticleT, NewsApiResponse } from './types/news';
-import { RandomUser, RandomUserApiResponse } from './types/randomUser';
+import Messages from '../components/Messages';
+import { ArticleT, NewsApiResponse } from '../types/news';
+import { RandomUserT, RandomUserApiResponse } from '../types/randomUser';
 
 export const metadata = {
   title: 'Twitter Clone app',
@@ -25,7 +25,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   const randomUserResponse = await fetch(randomUserUrl, { next: { revalidate: 10000 } });
   const randomUserResult: RandomUserApiResponse = await randomUserResponse.json();
-  const randomUsers = randomUserResult.results || ([] as RandomUser[]);
+  const randomUsers = randomUserResult.results || ([] as RandomUserT[]);
 
   return (
     <html lang='en'>
@@ -43,7 +43,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             {/* <Widget /> */}
             <Widget initialNewsResult={articles} randomUsers={randomUsers} />
           </div>
-          {/* <Auth /> */}
+          <Auth />
           <Messages />
         </Providers>
       </body>
