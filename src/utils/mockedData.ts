@@ -101,6 +101,112 @@ export const mockedTweets: TweetT[] = [
         timestamp: '2023-04-01T12:30:00Z',
       },
     ],
+  },{
+    id: 1,
+    title: 'Next.js 13: The Latest Features and Improvements',
+    user: {
+      username: 'Tester now, aspiring Fullstack',
+      name: 'Naveen Kolambage',
+      avatar: 'https://pbs.twimg.com/profile_images/1560233396403507200/5hKYoyz1_400x400.jpg',
+    },
+    content: 'TypeScript Course for Beginners - Learn TypeScript from Scratch!',
+    media: [
+      {
+        type: 'image',
+        url: 'https://i.ytimg.com/vi/XShQO3BvOyM/maxresdefault.jpg',
+      },
+      {
+        type: 'video',
+        url: 'https://www.youtube.com/embed/BwuLxPH8IDs?autoplay=1&mute=1',
+      },
+
+      
+    ],
+    timestamp: '2023-04-01T09:30:00Z',
+    likes: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T10:00:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        timestamp: '2023-04-01T11:00:00Z',
+      },
+    ],
+    comments: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        content: "I know right? I started using it recently too and it's a game changer!",
+        timestamp: '2023-04-01T10:30:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        content: "Yes, I couldn't agree more. It has saved me so much time on styling.",
+        timestamp: '2023-04-01T11:30:00Z',
+      },
+    ],
+    retweets: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T12:00:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        timestamp: '2023-04-01T13:00:00Z',
+      },
+    ],
+    views: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T10:00:00Z',
+      },
+      {
+        user: {
+          username: 'tailwindlover',
+          name: 'Tailwind Lover',
+          avatar: 'https://avatar.com/tailwindlover',
+        },
+        timestamp: '2023-04-01T11:00:00Z',
+      },
+    ],
+    shares: [
+      {
+        user: {
+          username: 'reactdev',
+          name: 'React Dev',
+          avatar: 'https://avatar.com/reactdev',
+        },
+        timestamp: '2023-04-01T12:30:00Z',
+      },
+    ],
   },
   {
     id: 1,
@@ -628,107 +734,6 @@ export const mockedTweets: TweetT[] = [
   },
   {
     id: 1,
-    title: 'Next.js 13: The Latest Features and Improvements',
-    user: {
-      username: 'Tester now, aspiring Fullstack',
-      name: 'Naveen Kolambage',
-      avatar: 'https://pbs.twimg.com/profile_images/1560233396403507200/5hKYoyz1_400x400.jpg',
-    },
-    content: 'Just tried out Vite with React and TypeScript and it is amazing! 🚀🔥 #reactjs #typescript #vite',
-    media: [
-      {
-        type: 'image',
-        url: 'https://i.ytimg.com/vi/XShQO3BvOyM/maxresdefault.jpg',
-      },
-    ],
-    timestamp: '2023-04-01T09:30:00Z',
-    likes: [
-      {
-        user: {
-          username: 'reactdev',
-          name: 'React Dev',
-          avatar: 'https://avatar.com/reactdev',
-        },
-        timestamp: '2023-04-01T10:00:00Z',
-      },
-      {
-        user: {
-          username: 'tailwindlover',
-          name: 'Tailwind Lover',
-          avatar: 'https://avatar.com/tailwindlover',
-        },
-        timestamp: '2023-04-01T11:00:00Z',
-      },
-    ],
-    comments: [
-      {
-        user: {
-          username: 'reactdev',
-          name: 'React Dev',
-          avatar: 'https://avatar.com/reactdev',
-        },
-        content: "I know right? I started using it recently too and it's a game changer!",
-        timestamp: '2023-04-01T10:30:00Z',
-      },
-      {
-        user: {
-          username: 'tailwindlover',
-          name: 'Tailwind Lover',
-          avatar: 'https://avatar.com/tailwindlover',
-        },
-        content: "Yes, I couldn't agree more. It has saved me so much time on styling.",
-        timestamp: '2023-04-01T11:30:00Z',
-      },
-    ],
-    retweets: [
-      {
-        user: {
-          username: 'reactdev',
-          name: 'React Dev',
-          avatar: 'https://avatar.com/reactdev',
-        },
-        timestamp: '2023-04-01T12:00:00Z',
-      },
-      {
-        user: {
-          username: 'tailwindlover',
-          name: 'Tailwind Lover',
-          avatar: 'https://avatar.com/tailwindlover',
-        },
-        timestamp: '2023-04-01T13:00:00Z',
-      },
-    ],
-    views: [
-      {
-        user: {
-          username: 'reactdev',
-          name: 'React Dev',
-          avatar: 'https://avatar.com/reactdev',
-        },
-        timestamp: '2023-04-01T10:00:00Z',
-      },
-      {
-        user: {
-          username: 'tailwindlover',
-          name: 'Tailwind Lover',
-          avatar: 'https://avatar.com/tailwindlover',
-        },
-        timestamp: '2023-04-01T11:00:00Z',
-      },
-    ],
-    shares: [
-      {
-        user: {
-          username: 'reactdev',
-          name: 'React Dev',
-          avatar: 'https://avatar.com/reactdev',
-        },
-        timestamp: '2023-04-01T12:30:00Z',
-      },
-    ],
-  },
-  {
-    id: 1,
     title: 'Next.js and GraphQL',
     user: {
       username: 'Saddam-dev',
@@ -739,7 +744,7 @@ export const mockedTweets: TweetT[] = [
     media: [
       {
         type: 'image',
-        url: 'https://davidwalsh.name/demo/graphql-intro/graphql.png',
+        url: 'https://www.apollographql.com/blog/static/49-1-0d86b359ff07c6fbf68b5f5de87ac40b.png',
       },
     ],
     timestamp: '2023-04-01T09:30:00Z',
@@ -1258,7 +1263,7 @@ export const mockedTweets: TweetT[] = [
     media: [
       {
         type: 'image',
-        url: 'https://davidwalsh.name/demo/graphql-intro/graphql.png',
+        url: 'https://tse2.mm.bing.net/th?id=OIP.ZxDw0j3ANBxpatoCdNW8JQHaEK&pid=Api&P=0',
       },
     ],
     timestamp: '2023-04-01T09:30:00Z',

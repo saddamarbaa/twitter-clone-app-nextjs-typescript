@@ -1,8 +1,11 @@
+'use client';
+
+import { motion, MotionProps } from 'framer-motion';
 import Image from 'next/image';
 import { ReactNode } from 'react';
 import { IconType } from 'react-icons';
 
-type Props = {
+type Props = MotionProps & {
   color?: string;
   onClick?: () => void;
   size?: 'small' | 'medium' | 'large';
@@ -28,6 +31,7 @@ export default function Button({
   id,
   preStyled,
   Icon,
+  ...rest
 }: Props) {
   const sizes = {
     small: 'py-1 px-2 text-sm',
@@ -55,7 +59,7 @@ export default function Button({
   const loadingClass = isLoading ? 'animate-pulse' : '';
 
   return (
-    <button
+    <motion.button
       id={id}
       type={type}
       onClick={onClick}
@@ -67,6 +71,7 @@ export default function Button({
       }   ${!preStyled && sizes[size]} ${!preStyled && colors[color]} ${disabledClass} ${loadingClass} ${
         !preStyled && buttonClassName
       }`}
+      {...rest}
     >
       {Icon ? <Icon className='mr-2 text-lg' /> : null}
 
@@ -77,6 +82,6 @@ export default function Button({
       ) : (
         children
       )}
-    </button>
+    </motion.button>
   );
 }

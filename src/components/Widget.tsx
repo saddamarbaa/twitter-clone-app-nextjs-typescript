@@ -21,10 +21,14 @@ export default function Widget({ initialNewsResult, randomUsers }: Props) {
         <input className='bg-transparent outline-none' type='text' placeholder='Search Twitter' />
       </div>
 
+      {/* Whats happening Session */}
       <News initialResult={initialNewsResult} />
 
       <div className='sticky top-16 flex w-full flex-col space-y-4'>
+          {/* Who to follow session */}
         <WhoToFollow initialResult={randomUsers} />
+          
+        {/* Trending session */}
         <Trending />
 
         <p className='p-4 text-xs text-gray-400'>

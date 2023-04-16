@@ -26,7 +26,10 @@ export default function Sidebar() {
           <Link href={'/'}>
             <SideBarOption Icon={FaTwitter} handleClick={handleClick} isLogo />
           </Link>
-          <SideBarOption Icon={FaHome} title='Home' handleClick={handleClick} />
+          <Link href={'/'}>
+            <SideBarOption Icon={FaHome} title='Home' handleClick={handleClick} />
+          </Link>
+         
           <SideBarOption Icon={BiHash} title='Explore' handleClick={handleClick} />
           <SideBarOption
             Icon={MdNotificationsActive}
