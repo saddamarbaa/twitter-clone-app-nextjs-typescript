@@ -43,11 +43,12 @@ export default function Tweet({ tweet }: Props) {
             </motion.h2>
             <span className='text-gray-500'>@{user.username}</span>
             <span className='text-gray-500'>·</span>
-            <span className='text-gray-500'>{timestamp}</span>
+            <span className='text-gray-500 hidden md:flex'>{timestamp}</span>
           </div>
           <p className='mt-1 dark:text-gray-300'>{content}</p>
 
-          <div className='flex w-full flex-col space-y-7'>
+         
+ <div className='flex w-full flex-col space-y-7'>
             {images && (
               <div className={`grid ${images.length > 1 ? 'grid-cols-2 gap-4' : 'grid-cols-1'}`}>
                 {images.map((item, index) => (
@@ -67,7 +68,7 @@ export default function Tweet({ tweet }: Props) {
             )}
 
             {videos && (
-              <div className={` grid ${videos.length > 1 ? 'grid-cols-2 gap-4' : 'grid-cols-1'} `}>
+              <div className={`hidden  sm:grid ${videos.length > 1 ? 'grid-cols-2 gap-4' : 'grid-cols-1'} `}>
                 {videos.map((item, index) => (
                   <div
                     key={item.type}
@@ -88,7 +89,6 @@ export default function Tweet({ tweet }: Props) {
               </div>
             )}
           </div>
-
           <div className='mt-2 flex items-center justify-between text-gray-500 dark:text-gray-300'>
             <div className='group flex items-center space-x-2'>
               <FaHeart className='h-4 w-4 text-red-500 group-hover:text-red-500' />
