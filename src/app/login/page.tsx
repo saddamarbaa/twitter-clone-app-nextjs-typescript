@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import Image from 'next/image';
@@ -8,10 +7,7 @@ import { useRouter } from 'next/navigation';
 import { AiFillApple } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
 import Button from '../components/Button';
-
-function Signup() {
-  const router = useRouter();
-
+function login() {
   const [isOpen, setIsOpen] = useState(true);
   const customStyles = {
     overlay: { backgroundColor: 'rgba(0, 0, 0, 0.6)' },
@@ -25,7 +21,8 @@ function Signup() {
       transform: 'translate(-50%, -50%)',
     },
   };
-  const switchToLogin = () => {
+
+  const switchToSignup = () => {
     console.log('hello');
     setIsOpen(false);
   };
@@ -37,16 +34,19 @@ function Signup() {
     // on success
     router.push('/');
   };
+
   return (
     <>
+      <button onClick={() => setIsOpen(true)}>Open Modal</button>
+
       <Modal isOpen={isOpen} onRequestClose={() => setIsOpen(false)} style={customStyles}>
-        <div className='flex h-[530px]  w-[450px] flex-col text-black'>
+        <div className='flex h-[530px] w-[450px] flex-col text-black'>
           <div className='header flex flex-row'>
             <button onClick={() => setIsOpen(false)}> X</button>
             <div className='w-full text-center'>
               <Image
-                className='mx-auto text-center'
-                src='/images/Twitter-logo.svg.png'
+                className='mx-auto text-center '
+                src='/Twitter-logo.svg.png'
                 alt='Twitter-Logo'
                 width={30}
                 height={24}
@@ -54,11 +54,11 @@ function Signup() {
             </div>
           </div>
           <div className='mx-auto pt-6 pb-6 text-2xl font-bold'>
-            <h3>Join Twitter today</h3>
+            <h3>Sign in to Twitter </h3>
           </div>
           <div className='mx-auto w-full max-w-[256px]'>
             <Button color='white' buttonClassName='text-black' onClick={handleClick} isLoading={false} Icon={FcGoogle}>
-              Sign Up with Google
+              Sign In with Google
             </Button>
           </div>
 
@@ -70,10 +70,9 @@ function Signup() {
               isLoading={false}
               Icon={AiFillApple}
             >
-              Sign Up with Apple
+              Sign In with Apple
             </Button>
           </div>
-
           <div className='break-line'>
             <div className='flex h-[60px]  items-center justify-center'>
               <div className='m-2  h-px w-32 bg-gray-300'></div>
@@ -81,31 +80,41 @@ function Signup() {
               <div className='m-2  h-px w-32 bg-gray-300'></div>
             </div>
           </div>
-          {/* <div className='break-line'>
-            <div className='wrapper-break'>
-              <div className='line-div'></div>
-              <div className='break-text'>or</div>
-              <div className='line-div'></div>
-            </div>
-          </div> */}
+
+          <div className='mb-6 flex items-center justify-center'>
+            <input
+              className='focus:shadow-outline w-80 appearance-none rounded border py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none'
+              id='username'
+              type='text'
+              placeholder='Phone, email or username'
+            ></input>
+          </div>
+
           <div className='mx-auto w-full max-w-[256px]'>
             <Button color='black' buttonClassName='text-white' onClick={handleClick} isLoading={false}>
-              Create account
+              Next
             </Button>
           </div>
-
-          <div className='mb-30 mx-auto flex w-full max-w-[256px] items-center justify-center'>
-            <div className='mt-4 text-[12px]'>
-              By signing up, you agree to the <a href='#'>Terms of Service</a> and <a href='#'>Privacy Policy</a>,
-              including <a href='#'>Cookie Use.</a>
+          {/* <div className='forgot-pwd-button'>
+            <div className='fg-button'>
+              <div className='text'>Forgot password?</div>
             </div>
+          </div> */}
+          <div className='mx-auto mt-5 w-full max-w-[256px]'>
+            <Button color='white' buttonClassName='text-black' onClick={handleClick} isLoading={false}>
+              Forgot password?
+            </Button>
           </div>
-
-          <div className='mx-auto mt-4'>
+          {/* <div className='login-wrapper'>
+            <div className='login-text'>
+              Dont have an account ? <Link href='/signup'>Sign up</Link>
+            </div>
+          </div> */}
+          <div className='mx-auto pt-3'>
             <div>
-              Have an account already?{' '}
-              <Link href='/login' className='text-sm  text-blue-500  hover:underline'>
-                Login
+              Dont have an account?{' '}
+              <Link href='/signup' className='text-sm  text-blue-500  hover:underline'>
+                Sign up
               </Link>
             </div>
           </div>
@@ -115,4 +124,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default login;
