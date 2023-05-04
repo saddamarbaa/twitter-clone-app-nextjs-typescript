@@ -13,13 +13,15 @@ export default function Auth() {
         </div>
         <div className='sm:min-w-sm  w-full  px-4 md:inline md:w-1/4'>
           <div className='flex items-center space-x-5 p-4'>
+             <Link href='/sign-in' className='w-full'>
             <Button
               preStyled='bg-gray-100 hover:bg-gray-200 active:bg-gray-300 flex w-full items-center justify-center rounded-full shadow transition duration-100 hover:shadow-lg text-black p-2'
               type='button'
             >
               Log in
-            </Button>
-            <Link href='/signup' className='w-full'>
+              </Button>
+              </Link>
+            <Link href='/sign-up' className='w-full'>
               <Button
                 preStyled='bg-gray-100 hover:bg-gray-200 active:bg-gray-300 flex w-full items-center justify-center rounded-full shadow transition duration-100 hover:shadow-lg text-black p-2'
                 type='button'
