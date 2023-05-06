@@ -1,3 +1,5 @@
+import { getServerSession } from 'next-auth';
+
 import '../styles/globals.css';
 import Auth from '../components/Auth';
 import Sidebar from '../components/Sidebar';
@@ -6,6 +8,7 @@ import Providers from './Providers';
 import Messages from '../components/Messages';
 import { ArticleT, NewsApiResponse } from '../types/news';
 import { RandomUserT, RandomUserApiResponse } from '../types/randomUser';
+import { authOptions } from '@/pages/api/auth/[...nextauth]';
 
 export const metadata = {
   title: 'Twitter Clone app',
@@ -27,16 +30,21 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const randomUserResult: RandomUserApiResponse = await randomUserResponse.json();
   const randomUsers = randomUserResult.results || ([] as RandomUserT[]);
 
+  const session = await getServerSession(authOptions);
+
+  console.log(' session', session);
+
   return (
     <html lang='en'>
       <body className='relative flex min-h-screen flex-col'>
-        <Providers>
+        <Providers session={session}>
           <div className='mx-auto flex min-h-full w-full max-w-7xl flex-row pr-4 md:px-0 md:pr-0'>
             {/*  Sidebar */}
             <Sidebar />
 
             <div className='relative flex h-full min-h-screen w-full flex-1 flex-col border border-b-0 dark:border-twitterGray-999 md:w-1/2'>
               {/* <Feeds /> */}
+
               {children}
             </div>
 

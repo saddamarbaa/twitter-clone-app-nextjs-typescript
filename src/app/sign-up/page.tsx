@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
+import { signIn, signOut, useSession } from 'next-auth/react';
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -13,7 +14,17 @@ import { FaGithub, FaTwitter } from 'react-icons/fa';
 
 export default function SignUp() {
   const router = useRouter();
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
+  const { data: session, status } = useSession();
+
+  useEffect(() => {
+    if (session) {
+      router.push('/');
+    }
+    if (status !== 'loading' && !session) {
+      setIsOpen(true);
+    }
+  }, [session, router, status]);
 
   const switchToLogin = () => {
     // setIsOpen(false);
@@ -27,6 +38,14 @@ export default function SignUp() {
     // on success
     router.push('/');
   };
+
+  if (status === 'loading') {
+    return (
+      <div className='mx-auto flex w-full max-w-6xl flex-wrap items-center  justify-center px-6  py-12'>
+        <p className='mt-8 w-full max-w-lg rounded  border bg-white p-6 text-center font-bold '>Initializing User...</p>
+      </div>
+    );
+  }
 
   return (
     <Modal
@@ -55,7 +74,7 @@ export default function SignUp() {
           <Button
             color='white'
             buttonClassName='text-black font-bold'
-            onClick={handleClick}
+            onClick={() => signIn('twitter')}
             isLoading={false}
             Icon={FaTwitter}
           >
@@ -65,7 +84,7 @@ export default function SignUp() {
           <Button
             color='white'
             buttonClassName='text-black font-bold'
-            onClick={handleClick}
+            onClick={() => signIn('google')}
             isLoading={false}
             Icon={FcGoogle}
           >
@@ -85,7 +104,7 @@ export default function SignUp() {
           <Button
             color='white'
             buttonClassName='text-black font-bold'
-            onClick={handleClick}
+            onClick={() => signIn('github')}
             isLoading={false}
             Icon={FaGithub}
           >
