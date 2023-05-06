@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
+import { signIn, signOut, useSession } from 'next-auth/react';
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -13,7 +14,18 @@ import { FaGithub, FaTwitter } from 'react-icons/fa';
 
 export default function SignIn() {
   const router = useRouter();
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
+  const { data: session, status } = useSession();
+  const [email, setEmail] = useState('');
+
+  useEffect(() => {
+    if (session) {
+      router.push('/');
+    }
+    if (status !== 'loading' && !session) {
+      setIsOpen(true);
+    }
+  }, [session, router, status]);
 
   const switchToLogin = () => {
     // setIsOpen(false);
@@ -26,6 +38,19 @@ export default function SignIn() {
 
     // on success
     router.push('/');
+  };
+
+  if (status === 'loading') {
+    return (
+      <div className='mx-auto flex w-full max-w-6xl flex-wrap items-center  justify-center px-6  py-12'>
+        <p className='mt-8 w-full max-w-lg rounded  border bg-white p-6 text-center font-bold '>Initializing User...</p>
+      </div>
+    );
+  }
+
+  const handleSubmit = () => {
+    if (!email) return false;
+    signIn('email', { email, redirect: false });
   };
 
   return (
@@ -55,7 +80,7 @@ export default function SignIn() {
           <Button
             color='white'
             buttonClassName='text-black font-bold'
-            onClick={handleClick}
+             onClick={() => signIn('twitter')}
             isLoading={false}
             Icon={FaTwitter}
           >
@@ -65,9 +90,9 @@ export default function SignIn() {
           <Button
             color='white'
             buttonClassName='text-black font-bold'
-            onClick={handleClick}
             isLoading={false}
             Icon={FcGoogle}
+            onClick={() => signIn('google')}
           >
             Sign In with Google
           </Button>
@@ -75,7 +100,7 @@ export default function SignIn() {
           <Button
             color='white'
             buttonClassName='text-black font-bold'
-            onClick={handleClick}
+            onClick={() => signIn('google')}
             isLoading={false}
             Icon={AiFillApple}
           >
@@ -85,7 +110,7 @@ export default function SignIn() {
           <Button
             color='white'
             buttonClassName='text-black font-bold'
-            onClick={handleClick}
+            onClick={() => signIn('github')}
             isLoading={false}
             Icon={FaGithub}
           >
@@ -103,13 +128,15 @@ export default function SignIn() {
           <div className='flex w-full  items-center justify-center'>
             <input
               className='focus:ring-twitterBlue dark:focus:ring-twitterBlue-light  w-full rounded-md border bg-transparent p-3 text-sm font-bold focus:outline-none focus:ring-2'
-              id='username'
-              type='text'
-              placeholder='Phone, email or username'
+              id='email'
+              value={email}
+              type='email'
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder='Email'
             />
           </div>
 
-          <Button color='black' buttonClassName='text-white font-bold' onClick={handleClick} isLoading={false}>
+          <Button color='black' buttonClassName='text-white font-bold' onClick={handleSubmit} isLoading={false}>
             Next
           </Button>
 
