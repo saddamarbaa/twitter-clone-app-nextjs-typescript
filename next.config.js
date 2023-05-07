@@ -10,6 +10,7 @@ const nextConfig = {
 			'githubusercontent.com',
 			'githubusercontent.com',
 			'pbs.twimg.com',
+			'media.licdn.com',
 		],
 	},
 }
