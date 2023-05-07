@@ -5,7 +5,7 @@ import { IconType } from 'react-icons';
 type Props = {
   title?: string;
   Icon: IconType;
-  handleClick?: () => void;
+  handleClick?: (isLogOut?:boolean) => void;
   isLogo?: boolean;
   notification?: number;
 };
@@ -13,7 +13,10 @@ type Props = {
 export default function SideBarOption({ notification, title, handleClick, Icon, isLogo = false }: Props) {
   const handleClickOption = () => {
     if (handleClick) {
-      handleClick();
+      if (title === 'Log out') {handleClick(true); }
+      else {
+        handleClick();
+      }
     }
   };
 

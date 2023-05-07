@@ -7,8 +7,10 @@ import { MdNotificationsActive } from 'react-icons/md'
 import { HiDotsCircleHorizontal } from 'react-icons/hi'
 import { IoBookmarkSharp } from 'react-icons/io5'
 import { BiHash } from 'react-icons/bi'
+import { MdLogout } from 'react-icons/md'
 import { TiBook } from 'react-icons/ti'
 import { IoIosMore } from 'react-icons/io'
+
 import { signOut, useSession } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -20,12 +22,6 @@ import Button from './Button'
 export default function Sidebar() {
 	const router = useRouter()
 	const { data: session } = useSession()
-	const handleClick = () => {
-		if (!session) {
-			console.log(session)
-			router.push(`/sign-in`)
-		}
-	}
 
 	const handleSignOut = async () => {
 		const data = await signOut({
@@ -34,6 +30,15 @@ export default function Sidebar() {
 		})
 		// push(data.url)
 		console.log(data.url)
+	}
+
+	const handleClick = (isLogOut?: boolean) => {
+		if (!session) {
+			console.log(session)
+			router.push(`/sign-in`)
+		} else if (session && isLogOut) {
+			handleSignOut()
+		}
 	}
 
 	return (
@@ -92,6 +97,13 @@ export default function Sidebar() {
 						title="Settings"
 						handleClick={handleClick}
 					/>
+					{session ? (
+						<SideBarOption
+							Icon={MdLogout}
+							title="Log out"
+							handleClick={handleClick}
+						/>
+					) : null}
 					<SideBarOption
 						Icon={HiDotsCircleHorizontal}
 						title="More"
