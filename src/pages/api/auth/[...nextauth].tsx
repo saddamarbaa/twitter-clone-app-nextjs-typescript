@@ -10,7 +10,14 @@ import EmailProvider from 'next-auth/providers/email'
 export const authOptions: NextAuthOptions = {
 	providers: [
 		// EmailProvider({
-		// 	server: process.env.EMAIL_SERVER,
+		// 	server: {
+		// 		host: process.env.EMAIL_SERVER_HOST,
+		// 		port: process.env.EMAIL_SERVER_PORT,
+		// 		auth: {
+		// 			user: process.env.EMAIL_SERVER_USER,
+		// 			pass: process.env.EMAIL_SERVER_PASSWORD,
+		// 		},
+		// 	},
 		// 	from: process.env.EMAIL_FROM,
 		// }),
 		// AppleProvider({
@@ -46,7 +53,7 @@ export const authOptions: NextAuthOptions = {
 		// }),
 	],
 	theme: {
-		colorScheme: 'light',
+		colorScheme: 'dark',
 	},
 	callbacks: {
 		async jwt({ token }) {
@@ -58,26 +65,3 @@ export const authOptions: NextAuthOptions = {
 
 export default NextAuth(authOptions)
 
-// import NextAuth from 'next-auth'
-// import GoogleProvider from 'next-auth/providers/google'
-// import GithubProvider from 'next-auth/providers/github'
-
-// export const authOptions = {
-// 	providers: [
-// 		GoogleProvider({
-// 			clientId: process.env.FIREBASE_GOOGLE_WEB_CLIENT_ID!,
-// 			clientSecret: process.env.FIREBASE_GOOGLE_WEB_CLIENT_SECRET!,
-// 		}),
-// 		GithubProvider({
-// 			clientId: process.env.GITHUB_CLIENT_ID!,
-// 			clientSecret: process.env.GITHUB_CLIENT_SECRET!,
-// 		}),
-// 	],
-// 	secret: process.env.NEXT_AUTH_SECRET,
-// 	jwt: {
-// 		secret: process.env.NEXT_AUTH_SECRET,
-// 	},
-// 	callbackUrl: process.env.NEXT_AUTH_URL + '/api/auth/callback',
-// }
-
-// export default NextAuth(authOptions)

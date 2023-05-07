@@ -54,7 +54,7 @@ export default function SignUp() {
       className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-30 p-4 dark:bg-[#657786] dark:bg-opacity-20'
       overlayClassName='fixed inset-0 z-50'
     >
-      <div className='flex min-h-[530px] w-full max-w-lg flex-col  space-y-5 rounded-lg bg-white p-6 text-black shadow-lg dark:bg-twitterBlack dark:text-twitterWhite dark:shadow-2xl'>
+      <div className='flex min-h-[500px] w-full max-w-lg flex-col  space-y-5 rounded-lg bg-white p-6 text-black shadow-lg dark:bg-twitterBlack dark:text-twitterWhite dark:shadow-2xl'>
         <div className='header flex flex-row'>
           <button className='text-xl  text-black dark:text-white' onClick={switchToLogin}>
             X
@@ -93,7 +93,7 @@ export default function SignUp() {
 
           <Button
             color='white'
-            buttonClassName='text-black font-bold'
+            buttonClassName='text-black font-bold hidden'
             onClick={handleClick}
             isLoading={false}
             Icon={AiFillApple}
