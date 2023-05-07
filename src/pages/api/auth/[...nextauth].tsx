@@ -6,6 +6,7 @@ import TwitterProvider from 'next-auth/providers/twitter'
 import Auth0Provider from 'next-auth/providers/auth0'
 import AppleProvider from 'next-auth/providers/apple'
 import EmailProvider from 'next-auth/providers/email'
+import LinkedInProvider from "next-auth/providers/linkedin";
 
 export const authOptions: NextAuthOptions = {
 	providers: [
@@ -46,6 +47,10 @@ export const authOptions: NextAuthOptions = {
 			clientId: process.env.TWITTER_ID!,
 			clientSecret: process.env.TWITTER_SECRET!,
 		}),
+		LinkedInProvider({
+    clientId: process.env.LINKEDIN_ID!,
+    clientSecret: process.env.LINKEDIN_SECRET!
+  })
 		// Auth0Provider({
 		// 	clientId: process.env.AUTH0_ID!,
 		// 	clientSecret: process.env.AUTH0_SECRET!,

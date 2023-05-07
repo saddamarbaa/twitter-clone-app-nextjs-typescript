@@ -68,12 +68,12 @@ export default function Button({
 			className={`${
 				preStyled
 					? preStyled
-					: 'flex w-full items-center justify-center rounded-full shadow transition duration-100 hover:shadow-lg cursor-pointer'
+					: 'flex w-full cursor-pointer items-center justify-center rounded-full shadow transition duration-100 hover:shadow-lg'
 			}   ${!preStyled && sizes[size]} ${
 				!preStyled && colors[color]
 			} ${disabledClass} ${loadingClass} ${!preStyled && buttonClassName}`}
 			{...rest}>
-			{Icon ? <Icon className="mr-4 text-2xl font-bold" /> : null}
+			{Icon ? <Icon className="mr-5 text-2xl font-bold" /> : null}
 
 			{isLoading ? (
 				<div>
