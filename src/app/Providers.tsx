@@ -22,16 +22,16 @@ export default function Providers({ children, session }: Props) {
   return (
     <SessionProvider session={session}>
       <ThemeProvider enableSystem={true} attribute='class'>
-        <motion.div
-          initial='initial'
-          animate='enter'
-          exit='exit'
-          variants={pageVariants}
+        <div
+          // initial='initial'
+          // animate='enter'
+          // exit='exit'
+          // variants={pageVariants}
           className='transition-color flex min-h-screen flex-col bg-twitterWhite text-twitterBlack duration-300 dark:bg-twitterBlack dark:text-twitterWhite'
         >
           <ToastProvider position='top-right' />
           {children}
-        </motion.div>
+        </div>
       </ThemeProvider>
     </SessionProvider>
   );
