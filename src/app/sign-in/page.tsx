@@ -12,6 +12,12 @@ import Image from 'next/image';
 import { FaGithub, FaTwitter } from 'react-icons/fa';
 import { GrLinkedin } from 'react-icons/gr';
 import TweetInput from '@/components/TweetInput';
+import { Metadata } from 'next';
+
+const metadata: Metadata = {
+  title: 'Sign in to Twitter',
+  description: 'Twitter Clone build with + Typescript .',
+};
 
 export default function SignIn() {
   const router = useRouter();

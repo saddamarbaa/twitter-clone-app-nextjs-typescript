@@ -9,8 +9,9 @@ import Messages from '../components/Messages';
 import { ArticleT, NewsApiResponse } from '../types/news';
 import { RandomUserT, RandomUserApiResponse } from '../types/randomUser';
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
+import { Metadata } from 'next';
 
-export const metadata = {
+const metadata: Metadata = {
   title: 'Twitter Clone app',
   description: 'Twitter Clone build with + Typescript .',
 };
