@@ -1,4 +1,4 @@
-export interface TweetT {
+export interface TweetTemp {
   id: number;
   user: {
     username: string;
@@ -53,4 +53,22 @@ export interface TweetT {
     };
     timestamp: string;
   }[];
+}
+
+
+export interface TweetT {
+	id: string
+	title: string
+	user: {
+		email?: string
+    name?: string
+    image:string
+	}
+	content: string
+	timestamp: {
+    seconds: number;
+    nanoseconds: number;
+  };
+	userRef: string
+  images:string[]
 }
