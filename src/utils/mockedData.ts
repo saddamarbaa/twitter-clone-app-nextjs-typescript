@@ -1,6 +1,6 @@
-import { TweetT } from '../types/tweets';
+import { TweetT, TweetTemp } from '../types/tweets';
 
-export const mockedTweets: TweetT[] = [
+export const mockedTweets: TweetTemp[] = [
   {
     id: 1,
     title: 'React and TypeScript',

@@ -88,7 +88,13 @@ export default function Sidebar() {
 						<SideBarOption
 							Icon={FaUserPlus}
 							title="Profile"
-							handleClick={handleClick}
+							handleClick={() => {
+								const email = session?.user?.email || session?.user?.name
+								const username =
+									(email && email.substring(0, email.indexOf('@'))) ||
+									session?.user?.name
+								router.push(`/${username}`)
+							}}
 						/>
 					) : null}
 					<DarkModSwitch />
@@ -134,7 +140,7 @@ export default function Sidebar() {
 
 						<div className="hidden w-full cursor-pointer  md:block">
 							<div className="flex cursor-pointer items-center justify-between">
-								<p className=" line-clamp-1">{session?.user?.name}</p>
+								<p className="line-clamp-1">{session?.user?.name}</p>
 								<IoIosMore className="cursor-pointer dark:text-white" />
 							</div>
 							<p className="line-clamp-1 text-sm text-gray-400">
