@@ -18,6 +18,7 @@ import {
 } from 'firebase/firestore'
 import { toast } from 'react-hot-toast'
 import { TweetT } from '@/types/tweets'
+import Image from 'next/image'
 
 const adminRef = process.env.NEXT_PUBLIC_ADMIN_REF
 
@@ -29,7 +30,7 @@ export default function Tweets({
 	isAdminRef?: boolean
 }) {
 	const [tweets, setTweets] = useState<TweetT[]>([])
-	const [loading, setLoading] = useState(false)
+	const [loading, setLoading] = useState(true)
 	const { data: session, status } = useSession()
 	const [adminTweets, setAdminTweets] = useState<TweetT[]>([])
 
@@ -132,7 +133,14 @@ export default function Tweets({
 	if (loading && !adminTweets?.length && !tweets?.length) {
 		return (
 			<div className="overflow-hidden border-b border-gray-200 p-4 transition duration-300 ease-in-out hover:bg-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
-				<p className="mt-1 p-2 text-center dark:text-gray-300">Loading...</p>
+				<Image
+					src="/images/loading.svg"
+					alt="Loading..."
+					className="mx-auto h-8 w-8"
+					width={40}
+					height={40}
+				/>
+				{/* <p className="mt-1 p-2 text-center dark:text-gray-300">Loading...</p> */}
 			</div>
 		)
 	}
