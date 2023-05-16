@@ -1,8 +1,12 @@
 import React from 'react'
 import { FaHeart, FaComment, FaRetweet, FaEye, FaShare } from 'react-icons/fa'
 import { motion } from 'framer-motion'
-import { TweetT } from '../types/tweets'
 import Moment from 'moment'
+import { db } from '@/config/firebase'
+import { doc, getDoc, updateDoc } from 'firebase/firestore'
+import { useSession } from 'next-auth/react'
+import { toast } from 'react-hot-toast'
+import { TweetT } from '../types/tweets'
 import { getRandomIntNumberBetween } from '@/utils/helpers'
 
 type Props = {
@@ -11,10 +15,68 @@ type Props = {
 
 export default function Tweet({ tweet }: Props) {
 	const { user, content, id, timestamp, title, images } = tweet
+	const { data: session } = useSession()
 
 	const itemVariants = {
 		hidden: { opacity: 0, y: -10 },
 		visible: { opacity: 1, y: 0, transition: { duration: 0.1 } },
+	}
+
+	const handleLike = async (tweet: TweetT) => {
+		try {
+			const tweetId = tweet.id as string
+			const docRef = doc(db, 'tweets', tweetId)
+			const docSnap = await getDoc(docRef)
+
+			if (!docSnap.exists()) {
+				console.log('Tweet document does not exist')
+				return
+			}
+
+			const existingData = docSnap.data()
+			const likes = existingData.likes || []
+			const userEmail = session?.user?.email
+
+			const userAlreadyLiked = likes.some(
+				(like: { email: string | null | undefined }) =>
+					like.email === userEmail,
+			)
+
+			if (userAlreadyLiked) {
+				// User has already liked the tweet, so unlike it
+				const updatedLikes = likes.filter(
+					(like: { email: string | null | undefined }) =>
+						like.email !== userEmail,
+				)
+				const formDataCopy = {
+					...existingData,
+					likes: updatedLikes,
+				}
+				await updateDoc(docRef, formDataCopy)
+
+				toast.dismiss()
+				toast.success('Unliked the tweet!')
+			} else if (!userAlreadyLiked) {
+				// User has not liked the tweet, so like it
+				const updatedLikes = [...likes, { email: userEmail }]
+				const formDataCopy = {
+					...existingData,
+					likes: updatedLikes,
+				}
+				await updateDoc(docRef, formDataCopy)
+
+				toast.dismiss()
+				toast.success('Liked the tweet!')
+			} else {
+				// User has already liked the tweet or an unexpected condition occurred
+				toast.error('You have already liked this tweet.')
+			}
+		} catch (error) {
+			console.log('Error updating tweet likes:', error)
+
+			toast.dismiss()
+			toast.error('Failed to update the tweet. Please try again.')
+		}
 	}
 
 	const media = [
@@ -79,7 +141,7 @@ export default function Tweet({ tweet }: Props) {
 										alt={`Media ${index}`}
 										className={`${
 											images.length === 1
-												? 'h-full w-full max-h-[500px]'
+												? 'h-full max-h-[500px] w-full'
 												: 'h-40 w-full'
 										} transform cursor-pointer   rounded-md object-cover transition duration-300 ease-in-out hover:scale-105`}
 									/>
@@ -116,13 +178,20 @@ export default function Tweet({ tweet }: Props) {
 
 					<div className="mt-2 flex items-center justify-between text-gray-500 dark:text-gray-300">
 						<div className="group flex items-center space-x-2">
-							<FaHeart className="h-4 w-4 text-red-500 group-hover:text-red-500" />
+							<FaHeart
+								className={`h-4 w-4  cursor-pointer text-red-500 group-hover:text-red-500`}
+								onClick={() => {
+									if (tweet.id) {
+										handleLike(tweet)
+									}
+								}}
+							/>
 							<span className=" group-hover:text-red-500">
-								{getRandomIntNumberBetween(2, 33)}
+								{tweet?.likes ? tweet?.likes?.length : ''}
 							</span>
 						</div>
 						<div className="group flex items-center space-x-2">
-							<FaComment className="h-4 w-4 group-hover:text-red-500" />
+							<FaComment className="h-4 w-4 cursor-pointer group-hover:text-red-500" />
 							<span>{getRandomIntNumberBetween(2, 33)}</span>
 						</div>
 						<div className="flex items-center space-x-2">
@@ -130,11 +199,11 @@ export default function Tweet({ tweet }: Props) {
 							<span>{getRandomIntNumberBetween(2, 33)}</span>
 						</div>
 						<div className="group flex items-center space-x-2">
-							<FaEye className="h-4 w-4" />
+							<FaEye className="h-4 w-4 cursor-pointer" />
 							<span>{getRandomIntNumberBetween(2, 33)}</span>
 						</div>
 						<div className="group flex items-center space-x-2">
-							<FaShare className="h-4 w-4" />
+							<FaShare className="h-4 w-4 cursor-pointer" />
 							<span>{getRandomIntNumberBetween(2, 33)}</span>
 						</div>
 					</div>

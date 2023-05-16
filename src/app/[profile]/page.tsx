@@ -39,6 +39,11 @@ export default function Profile() {
   const image = !email?.includes(process?.env?.NEXT_PUBLIC_ADMIN_NAME as string)
     ? '/images/linkedin-banner-01.jpg'
     : '/images/twitter-banner.jpeg';
+
+  // <div>
+  //   <Image src='/images/loading.svg' alt='Loading...' className='h-16 w-16' width={200} height={200} />
+  // </div>;
+
   return (
     <>
       <div>
