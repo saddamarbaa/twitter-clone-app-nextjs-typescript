@@ -61,16 +61,25 @@ export interface UserT {
 	image: string
 }
 
+export interface TimestampT {
+	seconds: number
+	nanoseconds: number
+}
+
+export interface CommentT {
+	text: string
+	user: UserT
+	timestamp: TimestampT
+}
+
 export interface TweetT {
 	id: string
 	title: string
 	user: UserT
 	content: string
-	timestamp: {
-		seconds: number
-		nanoseconds: number
-	}
+	timestamp: TimestampT
 	userRef: string
 	images: string[]
 	likes?: UserT[]
+	comments?: CommentT[]
 }
