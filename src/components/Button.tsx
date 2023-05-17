@@ -68,7 +68,11 @@ export default function Button({
 			className={`${
 				preStyled
 					? preStyled
-					: 'flex w-full cursor-pointer items-center justify-center rounded-full shadow transition duration-100 hover:shadow-lg'
+					: `flex w-full  items-center justify-center rounded-full shadow  ${
+							isDisabled || isLoading
+								? 'cursor-not-allowed'
+								: 'cursor-pointer transition duration-100 hover:shadow-lg'
+					  }`
 			}   ${!preStyled && sizes[size]} ${
 				!preStyled && colors[color]
 			} ${disabledClass} ${loadingClass} ${!preStyled && buttonClassName}`}

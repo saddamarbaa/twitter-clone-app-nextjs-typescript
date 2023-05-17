@@ -40,6 +40,7 @@ export default function Tweets({
 			(isAdminRef && fetchUser && session?.user?.email === adminRef)
 		) {
 			setLoading(true)
+			toast.loading('Loading tweets')
 			const tweetsRef = collection(db, 'tweets')
 			const unsubscribe = onSnapshot(
 				query(
@@ -71,7 +72,9 @@ export default function Tweets({
 	useEffect(() => {
 		const fetchUserTweets = async () => {
 			try {
+				toast.dismiss()
 				setLoading(true)
+				toast.loading('Loading tweets')
 				const userRef = session?.user?.email || session?.user?.name
 				const tweetsRef = collection(db, 'tweets')
 				const q = query(
@@ -100,7 +103,9 @@ export default function Tweets({
 		if (fetchUser && session?.user?.email !== adminRef) {
 			fetchUserTweets()
 		} else if (!fetchUser) {
+			toast.dismiss()
 			setLoading(true)
+			toast.loading('Loading tweets')
 			const unsubscribe = onSnapshot(
 				query(
 					collection(db, 'tweets'),

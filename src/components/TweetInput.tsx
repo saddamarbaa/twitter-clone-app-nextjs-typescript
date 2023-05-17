@@ -144,6 +144,8 @@ export default function TweetInput() {
 				timestamp: serverTimestamp(),
 				userRef: session?.user?.email || session?.user?.name,
 				images: imgUrls,
+				likes: [],
+				comments: [],
 			}
 
 			await addDoc(collection(db, 'tweets'), formData)
